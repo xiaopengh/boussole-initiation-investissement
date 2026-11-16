@@ -1,0 +1,16 @@
+# Environnements Python
+.venv/
+venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+
+# Systèmes et éditeurs
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+.claude/
+
+# Fichiers temporaires Office (verrous d'ouverture)
+~$*

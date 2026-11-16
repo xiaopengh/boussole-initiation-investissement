@@ -1,0 +1,607 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Boussole — maquette</title>
+<meta name="description" content="Maquette cliquable de Boussole, application pédagogique en argent virtuel pour comprendre le risque avant d'investir.">
+<style>
+:root {
+  /* Identité « sobre et rassurante » : bleu ardoise (confiance), fond chaud (calme), ocre (attention sans alarme) */
+  --ink: #1d2b36;
+  --ink-2: #4a5966;
+  --ink-3: #7a8793;
+  --bg: #f6f3ee;
+  --surface: #ffffff;
+  --line: #e4ded4;
+  --brand: #24506b;
+  --brand-2: #e8eff4;
+  --accent: #b8860b;
+  --accent-2: #fbf3df;
+  --loss: #b4532a;         /* perte : terre cuite, jamais un rouge « alarme » */
+  --loss-2: #f8e9e1;
+  --ok: #3f6b4f;
+  --ok-2: #e7f0ea;
+  --c-actions: #24506b;
+  --c-oblig: #7fa6bf;
+  --c-mon: #d8cbb3;
+  --radius: 14px;
+  --stage: #dcd6cc;
+  --fs: 15px;
+}
+* { box-sizing: border-box; }
+html, body { margin: 0; }
+body {
+  background: var(--stage);
+  color: var(--ink);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+button { font: inherit; color: inherit; cursor: pointer; }
+a { color: var(--brand); }
+
+/* ---------- Mise en scène (bureau) ---------- */
+.stage { min-height: 100vh; display: flex; gap: 32px; justify-content: center; align-items: flex-start; padding: 28px 16px; }
+.notes { width: 330px; flex: none; position: sticky; top: 28px; font-size: 14px; line-height: 1.5; }
+.notes h1 { font-size: 18px; margin: 0 0 4px; }
+.notes .sub { color: var(--ink-2); margin: 0 0 16px; }
+.notes .card { background: var(--surface); border-radius: 12px; padding: 14px 16px; margin-bottom: 12px; border: 1px solid var(--line); }
+.notes h2 { font-size: 12px; text-transform: uppercase; letter-spacing: .06em; color: var(--ink-3); margin: 0 0 8px; }
+.notes ol { margin: 0; padding-left: 20px; }
+.notes ol a { text-decoration: none; }
+.notes ol a.on { font-weight: 700; text-decoration: underline; }
+.notes ul { margin: 6px 0 0; padding-left: 18px; }
+.notes .tag { display: inline-block; font-size: 12px; font-weight: 600; padding: 1px 7px; border-radius: 99px; margin-right: 4px; }
+.tag.L { background: #e9e3f5; color: #4b3a78; }
+.tag.N { background: #e3eef0; color: #24555e; }
+.notes label { display: flex; gap: 8px; align-items: center; cursor: pointer; }
+body.mode-test .notes .annot { display: none; }
+
+.phone { width: 390px; height: 820px; flex: none; background: #111; border-radius: 46px; padding: 12px; box-shadow: 0 30px 60px -20px rgba(0,0,0,.35); }
+.app { position: relative; height: 100%; background: var(--bg); border-radius: 36px; overflow: hidden; overflow: clip; display: flex; flex-direction: column; font-size: var(--fs); }
+.app.grand { --fs: 17.5px; }
+
+@media (max-width: 820px) {
+  .stage { padding: 0; display: block; }
+  .notes { display: none; }
+  .phone { width: 100%; height: 100dvh; border-radius: 0; padding: 0; box-shadow: none; background: var(--bg); }
+  .app { border-radius: 0; max-width: 560px; margin: 0 auto; }
+}
+
+/* ---------- Application ---------- */
+.topbar { display: flex; align-items: center; gap: 8px; padding: 16px 18px 10px; background: var(--bg); }
+.logo { display: flex; align-items: center; gap: 8px; font-weight: 700; font-size: 1.1em; letter-spacing: .01em; color: var(--brand); }
+.badge { font-size: .72em; font-weight: 600; background: var(--accent-2); color: #7a5a07; padding: 3px 8px; border-radius: 99px; border: 1px solid #ecd9a6; white-space: nowrap; }
+.topbar .sp { flex: 1; }
+.iconbtn { width: 34px; height: 34px; border-radius: 50%; border: 1px solid var(--line); background: var(--surface); display: grid; place-items: center; font-weight: 700; font-size: .85em; color: var(--brand); }
+
+main { flex: 1; min-height: 0; overflow-y: auto; padding: 6px 18px 24px; scroll-behavior: smooth; }
+main h1 { font-size: 1.6em; line-height: 1.2; margin: 10px 0 8px; letter-spacing: -.01em; }
+main h2 { font-size: 1.3em; line-height: 1.25; margin: 8px 0 6px; }
+main h3 { font-size: 1em; margin: 0 0 4px; }
+main p { line-height: 1.5; margin: 0 0 10px; }
+.muted { color: var(--ink-2); }
+.small { font-size: .82em; line-height: 1.45; color: var(--ink-2); }
+.card { background: var(--surface); border-radius: var(--radius); padding: 14px 16px; margin: 12px 0; border: 1px solid var(--line); }
+.row { display: flex; gap: 12px; align-items: flex-start; }
+.ico { width: 36px; height: 36px; flex: none; border-radius: 10px; display: grid; place-items: center; background: var(--brand-2); color: var(--brand); }
+.btn { display: block; width: 100%; text-align: center; padding: 14px 16px; border-radius: 12px; border: 0; font-weight: 650; margin: 10px 0; text-decoration: none; }
+.btn.primary { background: var(--brand); color: #fff; }
+.btn.secondary { background: var(--surface); color: var(--brand); border: 1.5px solid var(--brand); }
+.btn.ghost { background: transparent; color: var(--brand); padding: 8px; }
+.back { display: inline-block; margin: 4px 0 2px; text-decoration: none; font-weight: 600; font-size: .9em; }
+.steps { counter-reset: s; list-style: none; padding: 0; margin: 6px 0 0; }
+.steps li { counter-increment: s; display: flex; gap: 10px; align-items: center; padding: 7px 0; }
+.steps li::before { content: counter(s); width: 24px; height: 24px; border-radius: 50%; background: var(--brand-2); color: var(--brand); font-weight: 700; font-size: .8em; display: grid; place-items: center; flex: none; }
+.foot { font-size: .75em; color: var(--ink-3); line-height: 1.45; margin-top: 16px; border-top: 1px solid var(--line); padding-top: 10px; }
+
+.seg { display: flex; background: #ebe6de; border-radius: 10px; padding: 3px; margin: 8px 0 4px; }
+.seg button { flex: 1; border: 0; background: transparent; padding: 8px 4px; border-radius: 8px; font-weight: 600; font-size: .88em; color: var(--ink-2); }
+.seg button.on { background: var(--surface); color: var(--ink); box-shadow: 0 1px 3px rgba(0,0,0,.12); }
+.chips { display: flex; flex-wrap: wrap; gap: 6px; margin: 8px 0; }
+.chip { border: 1px solid var(--line); background: var(--surface); border-radius: 99px; padding: 6px 12px; font-size: .85em; font-weight: 600; color: var(--ink-2); }
+.chip.on { background: var(--brand); border-color: var(--brand); color: #fff; }
+
+.pf { display: block; text-decoration: none; color: inherit; }
+.pf .top { display: flex; justify-content: space-between; align-items: baseline; }
+.pf .name { font-weight: 700; font-size: 1.05em; }
+.pf .chev { color: var(--ink-3); }
+.mix { display: flex; height: 10px; border-radius: 6px; overflow: hidden; margin: 10px 0 6px; }
+.legend { display: flex; flex-wrap: wrap; gap: 4px 12px; font-size: .78em; color: var(--ink-2); }
+.legend i { display: inline-block; width: 9px; height: 9px; border-radius: 2px; margin-right: 4px; vertical-align: -1px; }
+.riskline { margin-top: 10px; padding-top: 10px; border-top: 1px dashed var(--line); font-size: .9em; }
+.riskbar { height: 6px; border-radius: 4px; background: #efe9e0; margin-top: 6px; overflow: hidden; }
+.riskbar span { display: block; height: 100%; background: var(--loss); border-radius: 4px; }
+.term { border: 0; background: none; padding: 0; color: inherit; text-decoration: underline dotted; text-underline-offset: 3px; font: inherit; cursor: help; }
+
+.risk { background: var(--surface); border-radius: 18px; padding: 18px; border: 1.5px solid var(--brand); margin: 12px 0; }
+.risk .lbl { font-size: .75em; font-weight: 700; text-transform: uppercase; letter-spacing: .06em; color: var(--brand); }
+.risk .phrase { font-size: 1.3em; line-height: 1.3; font-weight: 650; margin: 8px 0 12px; }
+.risk .phrase b { color: var(--loss); white-space: nowrap; }
+.months { display: grid; grid-template-columns: repeat(10, 1fr); gap: 5px; margin: 6px 0 8px; }
+.months span { aspect-ratio: 1; border-radius: 4px; background: var(--brand-2); border: 1px solid #cfdde7; }
+.months span.bad { background: var(--loss); border-color: var(--loss); }
+.warn { background: var(--accent-2); border: 1px solid #ecd9a6; border-radius: 12px; padding: 12px 14px; margin: 12px 0; font-size: .92em; line-height: 1.45; }
+.warn strong { display: block; margin-bottom: 2px; }
+.info { background: var(--brand-2); border-radius: 12px; padding: 12px 14px; margin: 12px 0; font-size: .92em; line-height: 1.45; }
+
+details.acc { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; margin: 8px 0; }
+details.acc summary { padding: 12px 14px; font-weight: 650; cursor: pointer; list-style: none; display: flex; justify-content: space-between; }
+details.acc summary::after { content: "+"; color: var(--brand); font-weight: 700; }
+details.acc[open] summary::after { content: "–"; }
+details.acc > div { padding: 0 14px 12px; line-height: 1.5; font-size: .93em; }
+details.acc ul { padding-left: 18px; margin: 4px 0; }
+details.acc li { margin: 4px 0; }
+
+.big { font-size: 1.9em; font-weight: 700; letter-spacing: -.01em; }
+.delta { font-weight: 650; }
+.delta.neg { color: var(--loss); }
+.delta.pos { color: var(--ok); }
+.question { background: var(--surface); border: 1.5px solid var(--accent); border-radius: 14px; padding: 14px; margin: 12px 0; }
+.opt { display: block; width: 100%; text-align: left; border: 1.5px solid var(--line); background: var(--surface); border-radius: 12px; padding: 12px 14px; margin: 8px 0; line-height: 1.4; }
+.opt:hover { border-color: var(--brand); }
+.opt.right { border-color: var(--ok); background: var(--ok-2); }
+.opt.wrong { border-color: var(--loss); background: var(--loss-2); }
+.opt[disabled] { cursor: default; }
+.feedback { border-radius: 12px; padding: 12px 14px; margin: 8px 0 4px; line-height: 1.45; font-size: .93em; }
+.feedback.ok { background: var(--ok-2); }
+.feedback.ko { background: var(--loss-2); }
+.progress { display: flex; gap: 6px; margin: 8px 0 4px; }
+.progress span { flex: 1; height: 5px; border-radius: 3px; background: #e2dbd0; }
+.progress span.on { background: var(--brand); }
+
+.tabbar { display: flex; border-top: 1px solid var(--line); background: var(--surface); padding: 6px 4px 16px; }
+.tabbar a { flex: 1; display: flex; flex-direction: column; align-items: center; gap: 3px; text-decoration: none; color: var(--ink-3); font-size: .66em; font-weight: 600; padding: 4px 0; }
+.tabbar a.on { color: var(--brand); }
+.tabbar svg { width: 22px; height: 22px; }
+
+.sheet-bg { position: absolute; inset: 0; background: rgba(20,28,36,.38); display: none; z-index: 10; }
+.sheet { position: absolute; left: 0; right: 0; bottom: 0; background: var(--surface); border-radius: 20px 20px 0 0; padding: 10px 20px 26px; max-height: 82%; overflow-y: auto; z-index: 11; transform: translateY(105%); visibility: hidden; transition: transform .22s ease, visibility 0s linear .22s; }
+.sheet.open { transform: none; visibility: visible; transition: transform .22s ease; }
+.sheet-bg.open { display: block; }
+.sheet .grab { width: 40px; height: 4px; border-radius: 2px; background: #d8d2c8; margin: 4px auto 12px; }
+.sheet h2 { font-size: 1.2em; margin: 4px 0 8px; }
+.sheet p, .sheet li { line-height: 1.5; }
+.sheet ul { padding-left: 18px; }
+
+svg text { font-family: inherit; }
+</style>
+</head>
+<body>
+<div class="stage">
+  <aside class="notes" aria-label="Annotations de la maquette">
+    <h1>Boussole — maquette cliquable</h1>
+    <p class="sub">Projet 1 · application pédagogique en argent virtuel. 6 écrans + 2 panneaux (règles du jeu, glossaire).</p>
+    <div class="card">
+      <h2>Écrans</h2>
+      <ol id="screenList"></ol>
+    </div>
+    <div class="card annot" id="annot"></div>
+    <div class="card">
+      <h2>Séance de test</h2>
+      <label><input type="checkbox" id="modeTest"> Mode test utilisateur (masque les annotations)</label>
+      <p class="small" style="margin:8px 0 0">Profils : <span class="tag L">L</span> Léa, 24 ans, curieuse pressée · <span class="tag N">N</span> Nadia, 51 ans, prudente. Voir <code>docs/02_profils_utilisateurs.md</code>.</p>
+    </div>
+  </aside>
+
+  <div class="phone">
+    <div class="app" id="app">
+      <header class="topbar">
+        <a class="logo" href="#accueil" style="text-decoration:none">
+          <svg width="26" height="26" viewBox="0 0 26 26" aria-hidden="true"><circle cx="13" cy="13" r="11.5" fill="none" stroke="currentColor" stroke-width="2"/><path d="M13 5 L16 13 L13 21 L10 13 Z" fill="currentColor"/><circle cx="13" cy="13" r="1.6" fill="#fff"/></svg>
+          Boussole
+        </a>
+        <span class="badge" title="Aucun argent réel n'est utilisé">Argent virtuel</span>
+        <span class="sp"></span>
+        <button class="iconbtn" id="btnTaille" aria-label="Agrandir le texte" title="Agrandir le texte">Aa</button>
+        <button class="iconbtn" id="btnRegles" aria-label="Règles du jeu et avertissements" title="Règles du jeu">i</button>
+      </header>
+      <main id="screen" tabindex="-1"></main>
+      <nav class="tabbar" id="tabbar" aria-label="Navigation principale"></nav>
+      <div class="sheet-bg" id="sheetBg"></div>
+      <div class="sheet" id="sheet" role="dialog" aria-modal="true"><div class="grab"></div><div id="sheetBody"></div>
+        <button class="btn secondary" id="sheetClose">Fermer</button></div>
+    </div>
+  </div>
+</div>
+
+<script src="donnees_indicateur.js"></script>
+<script>
+(() => {
+"use strict";
+const D = window.INDICATEUR;
+const PF_IDS = ["prudent", "equilibre", "dynamique", "actions"];
+const MONTANTS = [1000, 5000, 10000];
+const state = { montant: 10000, pf: "equilibre", quiz: { i: 0, score: 0, answered: false }, replay: null };
+try { const s = JSON.parse(localStorage.getItem("boussole") || "{}"); if (MONTANTS.includes(s.montant)) state.montant = s.montant; if (PF_IDS.includes(s.pf)) state.pf = s.pf; } catch (e) {}
+const save = () => { try { localStorage.setItem("boussole", JSON.stringify({ montant: state.montant, pf: state.pf })); } catch (e) {} };
+
+/* ---------- Utilitaires ---------- */
+const nf = new Intl.NumberFormat("fr-FR", { maximumFractionDigits: 0 });
+const eur = x => nf.format(Math.round(x)) + " €";
+const pct = x => new Intl.NumberFormat("fr-FR", { maximumFractionDigits: 1 }).format(x * 100) + " %";
+/* Même règle que python/var_indicateur.py : arrondi PAR EXCÈS à 2 chiffres significatifs */
+const arrondiExces = x => { if (x <= 0) return 0; const p = Math.pow(10, Math.floor(Math.log10(x)) - 1); return Math.ceil(x / p - 1e-9) * p; };
+const X = (id, m = state.montant) => arrondiExces(D.portefeuilles[id].var95 * m);
+const MOIS = ["janv.", "févr.", "mars", "avr.", "mai", "juin", "juil.", "août", "sept.", "oct.", "nov.", "déc."];
+const moisAn = iso => { const [y, m] = iso.split("-"); return MOIS[+m - 1] + " " + y; };
+const periodeTxt = ([a, b]) => { const [ya, ma] = a.split("-"), [yb, mb] = b.split("-"); return ya === yb ? `${MOIS[+ma - 1]}–${MOIS[+mb - 1]} ${yb}` : `${moisAn(a)} – ${moisAn(b)}`; };
+const debut = D.parametres.periode[0], fin = D.parametres.periode[1];
+const anDebut = debut.slice(0, 4);
+const nbAns = Math.round((new Date(fin) - new Date(debut)) / (365.25 * 864e5));
+const $ = sel => document.querySelector(sel);
+const esc = s => String(s).replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+
+const COMPOSANTES = [
+  ["actions_monde", "Actions monde", "var(--c-actions)", "actions"],
+  ["obligations_euro", "Obligations d'États zone euro", "var(--c-oblig)", "obligations"],
+  ["monetaire", "Monétaire", "var(--c-mon)", "monetaire"],
+];
+const mixHTML = id => {
+  const w = D.portefeuilles[id].poids;
+  const parts = COMPOSANTES.filter(([k]) => w[k] > 0);
+  return `<div class="mix" aria-hidden="true">${parts.map(([k, , c]) => `<span style="width:${w[k] * 100}%;background:${c}"></span>`).join("")}</div>
+    <div class="legend">${parts.map(([k, lib, c, g]) => `<span><i style="background:${c}"></i>${Math.round(w[k] * 100)} % <button class="term" data-g="${g}">${lib}</button></span>`).join("")}</div>`;
+};
+const segMontant = () => `<div class="seg" role="group" aria-label="Montant virtuel">${MONTANTS.map(m => `<button data-montant="${m}" class="${m === state.montant ? "on" : ""}">${eur(m)}</button>`).join("")}</div>`;
+
+/* ---------- Glossaire (aucun jargon non expliqué) ---------- */
+const GLOSSAIRE = {
+  actions: ["Action", "Une petite part d'une entreprise. Sa valeur monte et descend chaque jour selon ce que les investisseurs pensent de l'entreprise et de l'économie. Sur un mois, elle peut baisser fortement."],
+  obligations: ["Obligation", "Un prêt que vous faites à un État ou une entreprise, qui vous verse des intérêts. Sa valeur bouge moins qu'une action, mais elle peut baisser, notamment quand les taux d'intérêt montent (comme en 2022)."],
+  monetaire: ["Monétaire", "Un placement de très court terme, proche d'un compte rémunéré. Sa valeur bouge très peu, mais il rapporte peu. Il n'est pas garanti comme un Livret A."],
+  portefeuille: ["Portefeuille", "L'ensemble des placements que vous détenez. Ici, chaque portefeuille d'entraînement mélange actions, obligations et monétaire dans des proportions différentes."],
+  indice: ["Indice", "Une moyenne qui suit un grand groupe d'entreprises. Par exemple, l'indice MSCI World suit environ 1 400 grandes entreprises de 23 pays développés."],
+  capital: ["Perte en capital", "Récupérer moins que ce que l'on a placé. Tout investissement en actions ou obligations comporte ce risque."],
+  var: ["Value at Risk (VaR)", "Le nom technique de notre indicateur. « VaR à 95 % sur 1 mois » = la perte qui n'a été dépassée que dans 5 % des mois, soit 1 mois sur 20. Ce n'est pas une perte maximale."],
+  reequilibrage: ["Rééquilibrage", "Remettre chaque mois les proportions de départ (par exemple 50 % actions, 40 % obligations, 10 % monétaire), car elles dérivent quand les marchés bougent."],
+};
+
+/* ---------- Annotations (traçabilité écran → besoins des profils) ---------- */
+const ECRANS = [
+  { id: "accueil", nom: "Accueil", objectif: "Instaurer la confiance : argent virtuel, aucun ordre réel, aucune promesse de gain.", besoins: [["N", "N1 — être sûre qu'aucun argent réel n'est en jeu"], ["L", "L3 — s'entraîner sans risquer son argent"], ["L", "L4 — repérer les promesses trop belles"]], points: ["Les 3 engagements sont lus avant toute action.", "Durée du parcours annoncée (≈ 15 min)."] },
+  { id: "portefeuilles", nom: "Choisir un portefeuille", objectif: "Comparer 4 niveaux de risque en euros, pas en jargon.", besoins: [["L", "L2 — savoir combien on peut perdre, en €"], ["N", "N2 — comparer les niveaux de risque entre eux et au Livret A"]], points: ["Montant virtuel au choix : 1 000 / 5 000 / 10 000 €.", "Même phrase d'indicateur sur chaque carte.", "Exemples pédagogiques, pas des recommandations."] },
+  { id: "fiche", nom: "Indicateur de risque", objectif: "Afficher la phrase « 1 cas sur 20 » et éviter le contresens « perte maximale ».", besoins: [["L", "L2 — perte possible en € avec son montant"], ["N", "N3 — savoir ce qui arrive dans une mauvaise période"], ["L", "L1 — comprendre en moins d'une minute"]], points: ["Pictogramme 20 mois → fréquence visible.", "Pire mois observé affiché juste en dessous.", "Mention « performances passées »."] },
+  { id: "comprendre", nom: "Comprendre ce chiffre", objectif: "Montrer d'où vient le chiffre, avec les vraies périodes passées, et qu'il n'est pas un maximum.", besoins: [["N", "N4 — prendre son temps, relire"], ["N", "N5 — préparer un rendez-vous avec son conseiller"], ["L", "L1 — explications sans jargon"]], points: ["20 barres = 20 groupes de mois réels : même image que le pictogramme de l'écran 3.", "La barre « 1 sur 20 » montre la perte moyenne dans ce cas (≈ Expected Shortfall).", "Ce que le chiffre dit / ne dit pas ; le mot « VaR » n'apparaît qu'ici, expliqué."] },
+  { id: "rejouer", nom: "Rejouer une période passée", objectif: "Faire ressentir une baisse réelle et la réaction émotionnelle, sans biais rétrospectif.", besoins: [["N", "N3 — durée et ampleur d'une crise"], ["L", "L3 — s'entraîner à réagir sans risque"], ["L", "L4 — résister à l'impulsivité"]], points: ["Pause à mi-baisse (pas au plus bas) : on ne connaît pas la suite.", "Deux épisodes au dénouement opposé (2020 / 2022).", "Pas de score, pas de classement."] },
+  { id: "quiz", nom: "Vérifier ma compréhension", objectif: "Mesurer l'interprétation de l'indicateur (critère d'acceptation 2/3).", besoins: [["L", "L1 — vérifier rapidement qu'on a compris"], ["N", "N5 — se sentir capable d'en parler"]], points: ["Q1 = question du test utilisateur.", "Correction expliquée après chaque réponse.", "Aucune note, aucun badge."] },
+];
+
+/* ---------- Écrans ---------- */
+const ICON = {
+  coin: '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M9 9h5a2 2 0 010 4H10a2 2 0 000 4h5M12 6v2M12 16v2"/></svg>',
+  stop: '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M8 12h8"/></svg>',
+  shield: '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"/><path d="M9 12l2 2 4-4"/></svg>',
+};
+
+function ecranAccueil() {
+  return `
+  <h1>Apprenez le risque avant d'investir un euro réel.</h1>
+  <p class="muted">Boussole vous montre, avec des chiffres réels du passé, ce que vous pourriez perdre — avant de parler de ce que vous pourriez gagner.</p>
+  <div class="card"><div class="row"><div class="ico">${ICON.coin}</div><div><h3>100 % argent virtuel</h3><p class="small" style="margin:0">Vous recevez un montant fictif. Aucune carte bancaire, aucun versement.</p></div></div></div>
+  <div class="card"><div class="row"><div class="ico">${ICON.stop}</div><div><h3>Aucun ordre réel</h3><p class="small" style="margin:0">Rien n'est acheté ni vendu sur les marchés. C'est un simulateur d'apprentissage.</p></div></div></div>
+  <div class="card"><div class="row"><div class="ico">${ICON.shield}</div><div><h3>Aucune promesse de gain</h3><p class="small" style="margin:0">Nous ne vous dirons jamais quoi acheter ni combien vous allez gagner.</p></div></div></div>
+  <h3 style="margin-top:18px">Votre parcours · environ 15 minutes</h3>
+  <ol class="steps">
+    <li>Choisir un portefeuille d'entraînement</li>
+    <li>Comprendre son risque en euros</li>
+    <li>Rejouer une période difficile du passé</li>
+    <li>Vérifier ce que vous avez compris</li>
+  </ol>
+  <a class="btn primary" href="#portefeuilles">Commencer</a>
+  <button class="btn ghost" data-open="regles">Lire les règles du jeu</button>
+  <p class="foot">Boussole est un outil pédagogique. Il ne constitue ni un conseil en investissement ni une recommandation. Investir sur les marchés financiers comporte un risque de <button class="term" data-g="capital">perte en capital</button>.</p>`;
+}
+
+function ecranPortefeuilles() {
+  const maxX = Math.max(...PF_IDS.map(id => D.portefeuilles[id].var95));
+  return `
+  <h2>Choisissez un portefeuille d'entraînement</h2>
+  <p class="small">Quatre exemples, du plus calme au plus agité. Vous pourrez en changer à tout moment.</p>
+  <p class="small" style="margin:10px 0 0;font-weight:600;color:var(--ink)">Montant virtuel à placer</p>
+  ${segMontant()}
+  ${PF_IDS.map(id => { const p = D.portefeuilles[id]; return `
+  <a class="card pf" href="#fiche/${id}">
+    <div class="top"><span class="name">${esc(p.nom)}</span><span class="chev">Voir le détail ›</span></div>
+    ${mixHTML(id)}
+    <div class="riskline">1 cas sur 20 : perte de <b style="color:var(--loss)">plus de ${eur(X(id))}</b> en un mois
+      <div class="riskbar"><span style="width:${(p.var95 / maxX) * 100}%"></span></div>
+    </div>
+  </a>`; }).join("")}
+  <div class="info"><strong>Pour comparer :</strong> sur un Livret A, la somme déposée ne baisse jamais (elle est garantie), mais elle peut rapporter moins que la hausse des prix.</div>
+  <p class="foot">Ces portefeuilles sont des exemples pédagogiques composés d'<button class="term" data-g="indice">indices</button> largement diffusés, pas des recommandations. Chiffres calculés sur ${moisAn(debut)} – ${moisAn(fin)}. Les performances passées ne préjugent pas des performances futures.</p>`;
+}
+
+function ecranFiche(id) {
+  if (!PF_IDS.includes(id)) id = state.pf;
+  state.pf = id; save();
+  const p = D.portefeuilles[id];
+  const pire = p.pire_mois * state.montant;
+  return `
+  <a class="back" href="#portefeuilles">‹ Portefeuilles</a>
+  <h2>Portefeuille ${esc(p.nom)}</h2>
+  ${mixHTML(id)}
+  ${segMontant()}
+  <section class="risk" aria-label="Indicateur de risque">
+    <div class="lbl">Votre indicateur de risque · ${eur(state.montant)} virtuels</div>
+    <p class="phrase">Dans 1 cas sur 20, vous pourriez perdre <b>plus de ${eur(X(id))}</b> en un mois.</p>
+    <div class="months" role="img" aria-label="20 mois, dont 1 mauvais">${Array.from({ length: 20 }, (_, i) => `<span class="${i === 13 ? "bad" : ""}"></span>`).join("")}</div>
+    <p class="small" style="margin:0"><b style="color:var(--loss)">■</b> 1 mois sur 20, soit en moyenne un peu moins d'une fois tous les deux ans : la perte dépasse ${eur(X(id))}.<br>
+    <b style="color:#9db8ca">■</b> Les 19 autres mois : une perte plus petite, ou un gain.</p>
+  </section>
+  <div class="warn"><strong>Ce n'est pas une perte maximale.</strong>Le pire mois depuis ${anDebut} (${periodeTxt(p.pire_mois_periode)}), ce portefeuille a perdu <b>${eur(pire)}</b> sur ${eur(state.montant)}.</div>
+  <a class="btn secondary" href="#comprendre">D'où vient ce chiffre ?</a>
+  <a class="btn primary" href="#rejouer">Rejouer une crise avec ce portefeuille</a>
+  <p class="foot">Calculé à partir des cours réels de ${moisAn(debut)} à ${moisAn(fin)}, rééquilibrage mensuel. Les performances passées ne préjugent pas des performances futures. Le chiffre est mis à jour chaque mois et peut changer.</p>`;
+}
+
+function ecranComprendre() {
+  const id = state.pf, p = D.portefeuilles[id], m = state.montant, x = X(id);
+  const g = p.vingtiles.map(r => r * m); // 20 groupes de même taille, du pire au meilleur
+  const recent = p.echantillon_retenu === "5 dernières années";
+  const W = 324, H = 200, padT = 16, padB = 26, gap = 3;
+  const lo = Math.min(g[0], -x) * 1.12, hi = Math.max(g[19], 0) * 1.12;
+  const y = v => padT + (hi - v) / (hi - lo) * (H - padT - padB);
+  const bw = W / 20;
+  const bars = g.map((v, i) => `<rect x="${(i * bw + gap / 2).toFixed(1)}" y="${Math.min(y(v), y(0)).toFixed(1)}" width="${(bw - gap).toFixed(1)}" height="${Math.max(Math.abs(y(v) - y(0)), 1).toFixed(1)}" rx="2" fill="${i === 0 ? "var(--loss)" : v < 0 ? "#9db8ca" : "#cfdde7"}"/>`).join("");
+  return `
+  <h2>Que veut dire « 1 cas sur 20 » ?</h2>
+  <div class="chips">${PF_IDS.map(k => `<button class="chip ${k === id ? "on" : ""}" data-pf="${k}">${esc(D.portefeuilles[k].nom)}</button>`).join("")}</div>
+  <p class="small">Nous avons pris toutes les périodes d'un mois ${recent ? "des 5 dernières années" : `depuis ${anDebut}`} (${nf.format(p.n_fenetres_echantillon)} périodes réelles), rangées de la pire à la meilleure, puis découpées en <b>20 groupes de même taille</b>. Chaque barre montre le résultat moyen d'un groupe, pour ${eur(m)} placés.</p>
+  <svg viewBox="0 0 ${W} ${H}" width="100%" role="img" aria-label="20 groupes de résultats mensuels, du pire au meilleur">
+    ${bars}
+    <line x1="0" x2="${W}" y1="${y(0)}" y2="${y(0)}" stroke="#7a8793" stroke-width="0.8"/>
+    <line x1="0" x2="${W}" y1="${y(-x)}" y2="${y(-x)}" stroke="var(--loss)" stroke-width="1.2" stroke-dasharray="4 3"/>
+    <text x="${W - 2}" y="${y(-x) - 4}" text-anchor="end" font-size="10.5" fill="var(--loss)" font-weight="700" stroke="#f6f3ee" stroke-width="3" paint-order="stroke">− ${eur(x)}</text>
+    <text x="1" y="${H - 8}" font-size="9.5" fill="var(--loss)" font-weight="700">← 1 sur 20</text>
+    <text x="${W - 2}" y="${H - 8}" text-anchor="end" font-size="9.5" fill="#7a8793">meilleurs mois →</text>
+    <text x="${bw + 4}" y="${y(g[0]) + 4}" font-size="10" fill="var(--loss)">moyenne : −${eur(-g[0])}</text>
+  </svg>
+  <p>La <b style="color:var(--loss)">barre orange</b>, c'est « le 1 cas sur 20 » : les mois où la perte a dépassé environ ${eur(x)}. Dans ce cas-là, la perte moyenne a été de <b>${eur(-g[0])}</b>, et le pire mois depuis ${anDebut} a coûté <b>${eur(p.pire_mois * m)}</b>.</p>
+  <details class="acc" open><summary>Ce que ce chiffre dit</summary><div><ul>
+    <li>Dans le passé, environ 19 mois sur 20, la perte de ce portefeuille est restée inférieure à ${eur(x)}, ou il y a eu un gain.</li>
+    <li>Environ 1 mois sur 20, elle a été plus grande.</li>
+    <li>Plus le chiffre est grand, plus le portefeuille est « agité ».</li></ul></div></details>
+  <details class="acc"><summary>Ce qu'il ne dit pas</summary><div><ul>
+    <li><b>Ce n'est pas un maximum</b> : le pire mois depuis ${anDebut} (${periodeTxt(p.pire_mois_periode)}) a fait perdre ${eur(p.pire_mois * m)}.</li>
+    <li><b>Ce n'est pas une prévision</b> : l'avenir peut être pire que le passé.</li>
+    <li>Il ne dit rien du gain possible, et ce n'est pas un conseil.</li></ul></div></details>
+  <details class="acc"><summary>Comment il est calculé</summary><div>
+    <p>Nous utilisons les cours réels, de ${moisAn(debut)} à ${moisAn(fin)}, de fonds qui suivent des <button class="term" data-g="indice">indices</button> connus, avec un <button class="term" data-g="reequilibrage">rééquilibrage</button> mensuel. Nous calculons le résultat de chaque période d'un mois, puis la perte qui n'a été dépassée que dans 5 % des cas.</p>
+    <p><b>Règle de prudence :</b> nous faisons ce calcul deux fois, sur toutes les données depuis ${anDebut} et sur les 5 dernières années seulement, et nous affichons le plus élevé des deux (aujourd'hui : ${recent ? "les 5 dernières années, plus agitées" : `les données depuis ${anDebut}`}). Nous arrondissons toujours vers le haut. Le chiffre est recalculé chaque mois.</p></div></details>
+  <details class="acc"><summary>Le mot des pros</summary><div>
+    <p>Les professionnels appellent cet indicateur la <button class="term" data-g="var">Value at Risk (VaR)</button> à 95 % sur un mois, calculée ici par la méthode historique. Vous pouvez poser la question à votre conseiller : « Quelle perte ce placement a-t-il dépassée un mois sur 20 ? »</p></div></details>
+  <a class="btn primary" href="#quiz">Vérifier que j'ai compris</a>
+  <p class="foot">Les performances passées ne préjugent pas des performances futures.</p>`;
+}
+
+const EPISODES = {
+  covid_2020: { nom: "2020 : crise du Covid", annee: "2020", intro: "Début 2020, l'épidémie de Covid-19 se propage. Personne ne sait combien de temps la crise va durer." },
+  taux_2022: { nom: "2022 : hausse des taux", annee: "2022", intro: "Début 2022, les prix augmentent vite. Les banques centrales relèvent leurs taux d'intérêt : actions et obligations baissent en même temps." },
+};
+
+function ecranRejouer() {
+  const r = state.replay || (state.replay = { ep: "covid_2020", i: 0, phase: "pret", choix: null, timer: null });
+  const id = state.pf, m = state.montant;
+  const ep = serie(id, r.ep, m);
+  const vals = ep.vals;
+  const pause = indicePause(vals);
+  const i = r.phase === "pret" ? 0 : r.i;
+  const v = vals[i], d = v - m;
+  const fini = r.phase === "fin";
+  let bloc = "";
+  if (r.phase === "pret") bloc = `<p class="small">${EPISODES[r.ep].intro}</p><button class="btn primary" data-act="play">Lancer la période (${EPISODES[r.ep].annee})</button>`;
+  else if (r.phase === "lecture") bloc = `<p class="small">Semaine après semaine…</p>`;
+  else if (r.phase === "question") bloc = `
+    <div class="question"><b>${moisAn(ep.dates[i])} : votre portefeuille virtuel vaut ${eur(v)}, soit ${eur(-d)} de moins qu'au départ.</b>
+    <p class="small" style="margin:6px 0 0">Vous ne savez pas ce qui va se passer ensuite. Que faites-vous ?</p>
+    <button class="opt" data-choix="vendre">Je vends tout pour arrêter les pertes</button>
+    <button class="opt" data-choix="garder">Je ne touche à rien</button>
+    <button class="opt" data-choix="savoir">Je ne sais pas, j'ai besoin de comprendre</button></div>`;
+  else if (r.phase === "reponse") bloc = `<div class="feedback ${r.choix === "savoir" ? "ok" : ""}" style="background:var(--brand-2)">${feedbackChoix(r.choix)}</div><button class="btn primary" data-act="continuer">Voir la suite</button>`;
+  else if (fini) {
+    const vp = vals[pause], vmin = Math.min(...vals), vfin = vals[vals.length - 1];
+    bloc = `<div class="card">
+      <h3>Bilan de l'année ${EPISODES[r.ep].annee}</h3>
+      <p class="small" style="margin:6px 0 0">Au moment de votre décision : <b>${eur(vp)}</b><br>
+      Au plus bas de l'année : <b>${eur(vmin)}</b> (${pct(vmin / m - 1)})<br>
+      En fin d'année : <b>${eur(vfin)}</b> (<span class="delta ${vfin < m ? "neg" : "pos"}">${vfin >= m ? "+" : ""}${pct(vfin / m - 1)}</span>)</p>
+      ${r.choix === "vendre" ? `<p class="small" style="margin:8px 0 0">Ayant vendu, vous auriez gardé ${eur(vp)} jusqu'à la fin de l'année.</p>` : ""}
+    </div>
+    <div class="warn"><strong>À retenir</strong>${r.ep === "covid_2020" ? "En 2020, les marchés sont remontés en quelques mois. " : "En 2022, la baisse a duré presque toute l'année et n'était pas rattrapée fin décembre. "}Personne ne pouvait le savoir à l'avance. Avant d'investir, demandez-vous : pourrais-je supporter une telle baisse sans avoir besoin de vendre ?</div>
+    <button class="btn secondary" data-act="autre">Essayer l'autre période</button>
+    <a class="btn primary" href="#quiz">Vérifier ce que j'ai compris</a>`;
+  }
+  return `
+  <h2>Rejouer une période passée</h2>
+  <p class="small">Données réelles, argent virtuel. Vous découvrez la période semaine par semaine, sans connaître la suite.</p>
+  <div class="chips">${Object.entries(EPISODES).map(([k, e]) => `<button class="chip ${k === r.ep ? "on" : ""}" data-ep="${k}">${e.nom}</button>`).join("")}</div>
+  <div class="chips">${PF_IDS.map(k => `<button class="chip ${k === id ? "on" : ""}" data-pf="${k}">${esc(D.portefeuilles[k].nom)}</button>`).join("")}</div>
+  <div class="card" style="padding:12px 12px 6px">
+    <div class="small">${r.phase === "pret" ? "Départ" : moisAn(ep.dates[i])} · ${esc(D.portefeuilles[id].nom)}</div>
+    <div><span class="big">${eur(v)}</span> <span class="delta ${d < 0 ? "neg" : "pos"}">${r.phase === "pret" ? "" : (d >= 0 ? "+" : "−") + eur(Math.abs(d))}</span></div>
+    ${courbe(vals, i, m, r.phase === "pret" ? -1 : i)}
+  </div>
+  ${bloc}
+  <p class="foot">Valeurs hebdomadaires réelles du portefeuille ${esc(D.portefeuilles[id].nom)}, ramenées à ${eur(m)} au 1er janvier. Les performances passées ne préjugent pas des performances futures.</p>`;
+}
+
+/* Pause quand la baisse atteint 60 % de la baisse maximale de l'année : on ne s'arrête pas au point bas,
+   pour ne pas suggérer qu'« il fallait juste attendre » (biais rétrospectif). */
+function indicePause(vals) {
+  const m0 = vals[0];
+  const ddMax = Math.min(...vals.map(v => v / m0 - 1));
+  const k = vals.findIndex(v => v / m0 - 1 <= 0.6 * ddMax);
+  return Math.max(k, 1);
+}
+
+function courbe(vals, upto, m, cur) {
+  const W = 324, H = 150, p = 8;
+  const lo = Math.min(...vals, m) * 0.985, hi = Math.max(...vals, m) * 1.01;
+  const x = i => p + i / (vals.length - 1) * (W - 2 * p);
+  const y = v => p + (hi - v) / (hi - lo) * (H - 2 * p - 12);
+  const pts = vals.slice(0, Math.max(upto, 0) + 1).map((v, i) => `${x(i).toFixed(1)},${y(v).toFixed(1)}`).join(" ");
+  return `<svg viewBox="0 0 ${W} ${H}" width="100%" role="img" aria-label="Évolution de la valeur du portefeuille">
+    <line x1="${p}" x2="${W - p}" y1="${y(m)}" y2="${y(m)}" stroke="#7a8793" stroke-dasharray="3 3" stroke-width="0.8"/>
+    <text x="${p + 2}" y="${y(m) - 5}" font-size="10" fill="#7a8793" stroke="#fff" stroke-width="3" paint-order="stroke">départ ${eur(m)}</text>
+    ${cur >= 0 ? `<polyline points="${pts}" fill="none" stroke="var(--brand)" stroke-width="2" stroke-linejoin="round"/>
+    <circle cx="${x(cur)}" cy="${y(vals[cur])}" r="4" fill="${vals[cur] < m ? "var(--loss)" : "var(--brand)"}"/>` : ""}
+    <text x="${p}" y="${H - 2}" font-size="10" fill="#7a8793">janv.</text>
+    <text x="${W - p}" y="${H - 2}" text-anchor="end" font-size="10" fill="#7a8793">déc.</text>
+  </svg>`;
+}
+
+function feedbackChoix(c) {
+  if (c === "vendre") return "<b>C'est une réaction très fréquente.</b> Vendre peut être raisonnable si vous avez besoin de cet argent bientôt. Mais vendre sous le coup de la peur transforme une baisse, peut-être temporaire, en perte définitive.";
+  if (c === "garder") return "<b>Rester investi demande du sang-froid.</b> C'est plus facile si cet argent n'est pas nécessaire à court terme. Mais rien ne garantit que la valeur remonte vite, ni qu'elle ne baisse pas davantage.";
+  return "<b>Bonne réaction.</b> Ne pas décider dans l'urgence est souvent sage. La vraie question se pose avant d'investir : quelle baisse suis-je capable de supporter ?";
+}
+
+const QUESTIONS = () => {
+  const p = D.portefeuilles[state.pf], x = eur(X(state.pf));
+  return [
+    { q: `Votre portefeuille ${p.nom} affiche : « Dans 1 cas sur 20, vous pourriez perdre plus de ${x} en un mois. » Qu'est-ce que cela veut dire ?`,
+      opts: [[`Je ne peux pas perdre plus de ${x} en un mois.`, false, "Non : c'est le piège le plus courant. Ce chiffre n'est pas un maximum ; le pire mois passé a fait perdre bien plus."],
+             [`Environ un mois sur 20, ma perte pourrait dépasser ${x}, parfois de beaucoup.`, true, "Exactement. Les 19 autres mois sur 20, la perte est plus petite, ou il y a un gain."],
+             [`Je vais forcément perdre ${x} un mois sur 20.`, false, "Non : c'est une fréquence observée dans le passé, pas un calendrier. Il peut y avoir plusieurs mauvais mois d'affilée… ou aucun pendant longtemps."],
+             [`Les 19 autres mois, je suis sûr de gagner de l'argent.`, false, "Non : les 19 autres mois, la perte est seulement plus petite que ce chiffre. Il peut y avoir des pertes."]] },
+    { q: `Ce chiffre est calculé à partir de ${nbAns} ans de données réelles. Est-il garanti pour l'avenir ?`,
+      opts: [[`Oui, ${nbAns} ans c'est suffisant pour être sûr.`, false, "Non : l'avenir peut être pire que le passé. Les performances passées ne préjugent pas des performances futures."],
+             ["Non, c'est une estimation tirée du passé, qui peut changer.", true, "Exactement. C'est pourquoi le chiffre est recalculé chaque mois, avec une règle de prudence."]] },
+    { q: `Sur 2 ans (24 mois), combien de mois avec une perte de plus de ${x} faut-il s'attendre à voir, en moyenne ?`,
+      opts: [["Aucun", false, "Pas tout à fait : 1 cas sur 20 sur 24 mois, cela fait environ 1 mois, en moyenne."],
+             ["Environ 1", true, "Exactement : 24 ÷ 20 ≈ 1. Mais ce n'est qu'une moyenne : cela peut être 0, 1, 2 ou plus."],
+             ["Environ 12", false, "Non : 12 mois sur 24, ce serait 1 cas sur 2. Ici c'est 1 cas sur 20."]] },
+  ];
+};
+
+function ecranQuiz() {
+  const qs = QUESTIONS(), s = state.quiz;
+  const prog = `<div class="progress">${qs.map((_, k) => `<span class="${k <= s.i ? "on" : ""}"></span>`).join("")}</div>`;
+  if (s.i >= qs.length) {
+    const ok = s.score >= 2;
+    return `<h2>Vérifiez ce que vous avez compris</h2>${prog}
+      <div class="card"><div class="big">${s.score} / ${qs.length}</div>
+      <p style="margin:6px 0 0">${s.score === qs.length ? "Vous avez compris l'essentiel de l'indicateur." : ok ? "Vous avez compris l'essentiel. Relisez la correction de la question manquée." : "Ce n'est pas encore clair, et c'est normal : relisez l'explication, puis réessayez."}</p></div>
+      <div class="info">Retenez trois choses : le chiffre <b>n'est pas un maximum</b>, il <b>vient du passé</b>, et il se produit <b>environ un mois sur 20</b>.</div>
+      <a class="btn secondary" href="#comprendre">Revoir l'explication</a>
+      <button class="btn primary" data-act="rejouerquiz">Recommencer</button>
+      <p class="foot">Pas de note, pas de classement : ce quiz sert seulement à vérifier que l'indicateur est clair.</p>`;
+  }
+  const q = qs[s.i];
+  return `<h2>Vérifiez ce que vous avez compris</h2>
+    <p class="small">3 questions · aucune note, aucun classement.</p>${prog}
+    <p style="font-weight:650;margin-top:12px">${esc(q.q)}</p>
+    ${q.opts.map(([t], k) => `<button class="opt" data-rep="${k}">${esc(t)}</button>`).join("")}
+    <div id="fb"></div>`;
+}
+
+/* ---------- Panneaux ---------- */
+function ouvrirSheet(html) { $("#sheetBody").innerHTML = html; $("#sheet").classList.add("open"); $("#sheetBg").classList.add("open"); }
+function fermerSheet() { $("#sheet").classList.remove("open"); $("#sheetBg").classList.remove("open"); }
+const REGLES = `<h2>Règles du jeu</h2>
+  <ul>
+    <li><b>Argent virtuel uniquement.</b> Aucun versement, aucune carte bancaire, aucun gain ou perte réel.</li>
+    <li><b>Aucun ordre réel.</b> Boussole n'achète ni ne vend aucun produit financier.</li>
+    <li><b>Pas de conseil.</b> Les portefeuilles sont des exemples pédagogiques, identiques pour tous. Ils ne tiennent pas compte de votre situation.</li>
+    <li><b>Pas de promesse.</b> Les performances passées ne préjugent pas des performances futures. Tout investissement en actions ou obligations comporte un risque de perte en capital.</li>
+    <li><b>Données.</b> Cours publics de fonds indiciels (${moisAn(debut)} – ${moisAn(fin)}). Nous ne vous demandons aucune donnée bancaire.</li>
+    <li><b>Avant d'investir pour de vrai</b>, adressez-vous à un professionnel agréé et vérifiez-le sur le site de l'AMF ou le registre ORIAS.</li>
+  </ul>`;
+
+/* ---------- Routeur ---------- */
+const TABS = [
+  ["accueil", "Accueil", '<path d="M3 11l9-7 9 7v9a1 1 0 01-1 1h-5v-6H9v6H4a1 1 0 01-1-1z"/>'],
+  ["portefeuilles", "Portefeuilles", '<rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7V5a2 2 0 012-2h4a2 2 0 012 2v2"/>'],
+  ["comprendre", "Comprendre", '<circle cx="12" cy="12" r="9"/><path d="M9.5 9a2.5 2.5 0 114 2c-1 .7-1.5 1.2-1.5 2.5M12 17h.01"/>'],
+  ["rejouer", "Rejouer", '<path d="M4 12a8 8 0 108-8 8 8 0 00-6 2.7"/><path d="M4 3v5h5"/>'],
+  ["quiz", "Vérifier", '<path d="M9 11l3 3 8-8"/><path d="M20 12v7a2 2 0 01-2 2H6a2 2 0 01-2-2V5a2 2 0 012-2h9"/>'],
+];
+function route() {
+  const [ecran, arg] = (location.hash.slice(1) || "accueil").split("/");
+  if (state.replay && state.replay.timer && ecran !== "rejouer") { clearInterval(state.replay.timer); state.replay.timer = null; if (state.replay.phase === "lecture") state.replay.phase = "pret"; }
+  const rendu = { accueil: ecranAccueil, portefeuilles: ecranPortefeuilles, fiche: () => ecranFiche(arg), comprendre: ecranComprendre, rejouer: ecranRejouer, quiz: ecranQuiz }[ecran] || ecranAccueil;
+  $("#screen").innerHTML = rendu();
+  const actif = ecran === "fiche" ? "portefeuilles" : ecran;
+  $("#tabbar").innerHTML = TABS.map(([k, lib, path]) => `<a href="#${k}" class="${k === actif ? "on" : ""}"${k === actif ? ' aria-current="page"' : ""}><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">${path}</svg>${lib}</a>`).join("");
+  annoter(ecran in { accueil: 1, portefeuilles: 1, fiche: 1, comprendre: 1, rejouer: 1, quiz: 1 } ? ecran : "accueil");
+}
+function rerender(keepScroll = true) { const st = $("#screen").scrollTop; route(); if (keepScroll) $("#screen").scrollTop = st; }
+
+function annoter(ecran) {
+  const e = ECRANS.find(x => x.id === ecran);
+  $("#screenList").innerHTML = ECRANS.map((x, k) => `<li><a href="#${x.id === "fiche" ? "fiche/" + state.pf : x.id}" class="${x.id === ecran ? "on" : ""}">${x.nom}</a></li>`).join("");
+  $("#annot").innerHTML = `<h2>Écran ${ECRANS.indexOf(e) + 1} · ${e.nom}</h2><p style="margin:0 0 8px">${e.objectif}</p>
+    <h2 style="margin-top:10px">Besoins couverts</h2>${e.besoins.map(([t, b]) => `<div style="margin:4px 0"><span class="tag ${t}">${t}</span>${b}</div>`).join("")}
+    <h2 style="margin-top:12px">Choix de conception</h2><ul>${e.points.map(p => `<li>${p}</li>`).join("")}</ul>`;
+}
+
+/* ---------- Interactions ---------- */
+document.addEventListener("click", ev => {
+  const t = ev.target.closest("button, a");
+  if (!t) return;
+  if (t.dataset.g) { ev.preventDefault(); ev.stopPropagation(); const [titre, def] = GLOSSAIRE[t.dataset.g]; ouvrirSheet(`<h2>${titre}</h2><p>${def}</p>`); return; }
+  if (t.dataset.open === "regles") { ouvrirSheet(REGLES); return; }
+  if (t.dataset.montant) { state.montant = +t.dataset.montant; save(); rerender(); return; }
+  if (t.dataset.pf) { state.pf = t.dataset.pf; save(); if (state.replay) resetReplay(); rerender(); return; }
+  if (t.dataset.ep) { stopTimer(); state.replay = { ep: t.dataset.ep, i: 0, phase: "pret", choix: null, timer: null }; rerender(); return; }
+  if (t.dataset.act === "play") { lancer(); return; }
+  if (t.dataset.act === "continuer") { continuer(); return; }
+  if (t.dataset.act === "autre") { const ep = state.replay.ep === "covid_2020" ? "taux_2022" : "covid_2020"; state.replay = { ep, i: 0, phase: "pret", choix: null, timer: null }; rerender(false); return; }
+  if (t.dataset.choix) { state.replay.choix = t.dataset.choix; state.replay.phase = "reponse"; rerender(); return; }
+  if (t.dataset.rep !== undefined) { repondre(+t.dataset.rep); return; }
+  if (t.dataset.act === "suivante") { state.quiz.i++; state.quiz.answered = false; rerender(false); return; }
+  if (t.dataset.act === "rejouerquiz") { state.quiz = { i: 0, score: 0, answered: false }; rerender(false); return; }
+});
+$("#btnRegles").addEventListener("click", () => ouvrirSheet(REGLES));
+$("#btnTaille").addEventListener("click", () => { $("#app").classList.toggle("grand"); });
+$("#sheetBg").addEventListener("click", fermerSheet);
+$("#sheetClose").addEventListener("click", fermerSheet);
+document.addEventListener("keydown", e => { if (e.key === "Escape") fermerSheet(); });
+$("#modeTest").addEventListener("change", e => document.body.classList.toggle("mode-test", e.target.checked));
+window.addEventListener("hashchange", () => { route(); $("#screen").scrollTop = 0; });
+
+function stopTimer() { if (state.replay && state.replay.timer) { clearInterval(state.replay.timer); state.replay.timer = null; } }
+function resetReplay() { stopTimer(); state.replay = { ep: state.replay.ep, i: 0, phase: "pret", choix: null, timer: null }; }
+function valsCourantes() { return serie(state.pf, state.replay.ep, state.montant).vals; }
+/* Série hebdomadaire ramenée au montant choisi, précédée du point de départ (1er jour de l'année) */
+function serie(id, ep, m) {
+  const s = D.portefeuilles[id].rejouer[ep];
+  return { dates: [s.dates[0].slice(0, 4) + "-01-01", ...s.dates], vals: [m, ...s.valeurs.map(v => v / 10000 * m)] };
+}
+function lancer() {
+  const r = state.replay; r.i = 0; r.phase = "lecture";
+  const pause = indicePause(valsCourantes());
+  r.timer = setInterval(() => {
+    r.i++;
+    if (r.i >= pause) { r.i = pause; stopTimer(); r.phase = "question"; }
+    rerender();
+  }, 140);
+  rerender();
+}
+function continuer() {
+  const r = state.replay, n = valsCourantes().length;
+  r.phase = "lecture";
+  r.timer = setInterval(() => {
+    r.i++;
+    if (r.i >= n - 1) { r.i = n - 1; stopTimer(); r.phase = "fin"; }
+    rerender();
+  }, 110);
+  rerender();
+}
+function repondre(k) {
+  const s = state.quiz; if (s.answered) return;
+  s.answered = true;
+  const q = QUESTIONS()[s.i], [, juste, expli] = q.opts[k];
+  if (juste) s.score++;
+  document.querySelectorAll("[data-rep]").forEach(b => { const kk = +b.dataset.rep; b.disabled = true; if (q.opts[kk][1]) b.classList.add("right"); else if (kk === k) b.classList.add("wrong"); });
+  $("#fb").innerHTML = `<div class="feedback ${juste ? "ok" : "ko"}">${juste ? "<b>Bonne réponse.</b> " : "<b>Pas tout à fait.</b> "}${esc(expli)}</div>
+    <button class="btn primary" data-act="suivante">${s.i < QUESTIONS().length - 1 ? "Question suivante" : "Voir le résultat"}</button>`;
+  console.info("[test utilisateur] question", s.i + 1, "réponse", String.fromCharCode(65 + k), juste ? "JUSTE" : "FAUSSE");
+}
+
+route();
+})();
+</script>
+</body>
+</html>

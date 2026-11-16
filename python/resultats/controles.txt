@@ -1,0 +1,24 @@
+[principal] période 2009-09-25 → 2026-10-30, 4378 jours de bourse
+[principal] valeurs manquantes comblées par report (≤ 5 j) : 72 ; non comblées (lignes supprimées) : 0
+[principal] variations journalières > 15 % en valeur absolue : 0
+[principal] prix strictement positifs : True
+[prudent] VaR historique(1.9963%) ≤ ES(3.1808%) ≤ pire(9.4988%) : True
+[prudent] VaR affichée = max(historique 1.9963%, 5 ans 3.0071%) = 3.0071% (5 dernières années)
+[prudent] fréquence des pertes > VaR affichée dans son échantillon : 5.0000% (attendu ≈ 5 %)
+[prudent] arrondi par excès : X(1 000 €) = 31 ≥ 30.07 : True
+[equilibre] VaR historique(3.3131%) ≤ ES(5.1754%) ≤ pire(18.2125%) : True
+[equilibre] VaR affichée = max(historique 3.3131%, 5 ans 4.1010%) = 4.1010% (5 dernières années)
+[equilibre] fréquence des pertes > VaR affichée dans son échantillon : 5.0000% (attendu ≈ 5 %)
+[equilibre] arrondi par excès : X(1 000 €) = 42 ≥ 41.01 : True
+[dynamique] VaR historique(4.9314%) ≤ ES(7.7475%) ≤ pire(27.0514%) : True
+[dynamique] VaR affichée = max(historique 4.9314%, 5 ans 5.5617%) = 5.5617% (5 dernières années)
+[dynamique] fréquence des pertes > VaR affichée dans son échantillon : 5.0000% (attendu ≈ 5 %)
+[dynamique] arrondi par excès : X(1 000 €) = 56 ≥ 55.62 : True
+[actions] VaR historique(5.7392%) ≤ ES(9.4918%) ≤ pire(32.4794%) : True
+[actions] VaR affichée = max(historique 5.7392%, 5 ans 6.1328%) = 6.1328% (5 dernières années)
+[actions] fréquence des pertes > VaR affichée dans son échantillon : 5.0000% (attendu ≈ 5 %)
+[actions] arrondi par excès : X(1 000 €) = 62 ≥ 61.33 : True
+[stress 2008] période 2008-01-02 → 2026-10-30, 4819 jours de bourse
+[stress 2008] valeurs manquantes comblées par report (≤ 5 j) : 107 ; non comblées (lignes supprimées) : 0
+[stress 2008] variations journalières > 15 % en valeur absolue : 0
+[stress 2008] prix strictement positifs : True

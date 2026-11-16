@@ -1,0 +1,593 @@
+portefeuille,date,VaR_estimee_%,rendement_realise_%,depassement
+Prudent,2014-08-27,0.997,0.075,False
+Prudent,2014-09-25,0.997,-0.397,False
+Prudent,2014-10-24,1.036,2.031,False
+Prudent,2014-11-24,1.036,1.181,False
+Prudent,2014-12-23,1.036,2.869,False
+Prudent,2015-01-26,1.036,0.828,False
+Prudent,2015-02-24,1.036,1.393,False
+Prudent,2015-03-25,1.003,0.828,False
+Prudent,2015-04-27,1.003,-1.832,True
+Prudent,2015-05-27,1.176,-1.865,True
+Prudent,2015-06-25,1.35,0.945,False
+Prudent,2015-07-24,1.474,-2.621,True
+Prudent,2015-08-24,1.498,0.85,False
+Prudent,2015-09-22,1.779,1.128,False
+Prudent,2015-10-21,1.779,1.927,False
+Prudent,2015-11-19,1.779,-0.986,False
+Prudent,2015-12-18,1.779,-1.998,True
+Prudent,2016-01-20,1.825,1.337,False
+Prudent,2016-02-18,1.825,1.432,False
+Prudent,2016-03-18,1.825,0.708,False
+Prudent,2016-04-20,1.825,-0.784,False
+Prudent,2016-05-19,1.825,0.726,False
+Prudent,2016-06-17,1.797,2.14,False
+Prudent,2016-07-18,1.797,0.34,False
+Prudent,2016-08-16,1.797,-0.859,False
+Prudent,2016-09-14,1.797,0.215,False
+Prudent,2016-10-13,1.668,-1.21,False
+Prudent,2016-11-11,1.668,0.962,False
+Prudent,2016-12-12,1.668,0.924,False
+Prudent,2017-01-11,1.668,-0.6,False
+Prudent,2017-02-09,1.674,-0.224,False
+Prudent,2017-03-10,1.674,1.237,False
+Prudent,2017-04-10,1.674,-0.197,False
+Prudent,2017-05-12,1.674,0.561,False
+Prudent,2017-06-12,1.674,-1.527,False
+Prudent,2017-07-11,1.674,0.911,False
+Prudent,2017-08-09,1.674,-0.04,False
+Prudent,2017-09-07,1.674,0.4,False
+Prudent,2017-10-06,1.674,1.371,False
+Prudent,2017-11-06,1.674,0.205,False
+Prudent,2017-12-05,1.674,-0.077,False
+Prudent,2018-01-08,1.674,-1.752,True
+Prudent,2018-02-06,1.68,0.569,False
+Prudent,2018-03-07,1.68,0.585,False
+Prudent,2018-04-09,1.68,0.807,False
+Prudent,2018-05-09,1.555,-0.638,False
+Prudent,2018-06-07,1.555,0.859,False
+Prudent,2018-07-06,1.555,0.448,False
+Prudent,2018-08-06,1.555,-0.047,False
+Prudent,2018-09-04,1.555,-0.076,False
+Prudent,2018-10-03,1.555,-1.031,False
+Prudent,2018-11-01,1.599,0.437,False
+Prudent,2018-11-30,1.599,-1.234,False
+Prudent,2019-01-03,1.599,2.137,False
+Prudent,2019-02-01,1.599,0.889,False
+Prudent,2019-03-04,1.599,1.58,False
+Prudent,2019-04-02,1.599,0.441,False
+Prudent,2019-05-06,1.599,-0.007,False
+Prudent,2019-06-04,1.599,3.203,False
+Prudent,2019-07-03,1.599,0.57,False
+Prudent,2019-08-01,1.599,1.018,False
+Prudent,2019-08-30,1.599,0.367,False
+Prudent,2019-09-30,1.599,-0.824,False
+Prudent,2019-10-29,1.599,0.598,False
+Prudent,2019-11-27,1.599,-0.5,False
+Prudent,2019-12-30,1.599,1.717,False
+Prudent,2020-01-29,1.599,-0.953,False
+Prudent,2020-02-27,1.599,-4.478,True
+Prudent,2020-03-27,1.6,2.24,False
+Prudent,2020-04-29,1.595,0.618,False
+Prudent,2020-05-29,1.549,0.766,False
+Prudent,2020-06-29,1.549,1.04,False
+Prudent,2020-07-28,1.453,0.667,False
+Prudent,2020-08-26,1.439,-0.275,False
+Prudent,2020-09-24,1.426,1.128,False
+Prudent,2020-10-23,1.414,1.402,False
+Prudent,2020-11-23,1.407,0.375,False
+Prudent,2020-12-22,1.402,0.268,False
+Prudent,2021-01-22,1.393,-0.323,False
+Prudent,2021-02-22,1.379,0.485,False
+Prudent,2021-03-23,1.379,0.242,False
+Prudent,2021-04-23,1.372,-0.802,False
+Prudent,2021-05-24,1.372,1.161,False
+Prudent,2021-06-22,1.367,1.445,False
+Prudent,2021-07-21,1.365,0.878,False
+Prudent,2021-08-19,1.355,-0.705,False
+Prudent,2021-09-17,1.351,-0.141,False
+Prudent,2021-10-18,1.351,1.606,False
+Prudent,2021-11-16,1.349,-0.021,False
+Prudent,2021-12-15,1.346,-1.029,False
+Prudent,2022-01-13,1.351,-3.014,True
+Prudent,2022-02-11,1.465,-1.146,False
+Prudent,2022-03-14,1.549,-0.462,False
+Prudent,2022-04-12,1.554,-2.109,True
+Prudent,2022-05-13,1.913,-4.951,True
+Prudent,2022-06-13,2.109,3.747,False
+Prudent,2022-07-12,2.337,2.362,False
+Prudent,2022-08-10,2.337,-3.857,True
+Prudent,2022-09-08,2.552,-3.414,True
+Prudent,2022-10-07,3.015,0.273,False
+Prudent,2022-11-07,3.289,2.902,False
+Prudent,2022-12-06,3.289,-2.861,False
+Prudent,2023-01-05,3.415,2.148,False
+Prudent,2023-02-03,3.415,-2.328,False
+Prudent,2023-03-06,3.415,1.685,False
+Prudent,2023-04-04,3.415,-0.185,False
+Prudent,2023-05-08,3.415,1.204,False
+Prudent,2023-06-06,3.415,0.106,False
+Prudent,2023-07-05,3.415,-0.046,False
+Prudent,2023-08-03,3.415,0.59,False
+Prudent,2023-09-01,3.415,-1.935,False
+Prudent,2023-10-02,3.415,-0.097,False
+Prudent,2023-10-31,3.415,3.098,False
+Prudent,2023-11-29,3.415,2.818,False
+Prudent,2024-01-02,3.415,0.639,False
+Prudent,2024-01-31,3.415,0.162,False
+Prudent,2024-02-29,3.415,0.744,False
+Prudent,2024-04-02,3.415,-0.545,False
+Prudent,2024-05-02,3.415,0.171,False
+Prudent,2024-05-31,3.415,0.866,False
+Prudent,2024-07-01,3.415,1.339,False
+Prudent,2024-07-30,3.415,0.603,False
+Prudent,2024-08-28,3.415,1.022,False
+Prudent,2024-09-26,3.415,0.619,False
+Prudent,2024-10-25,3.415,1.565,False
+Prudent,2024-11-25,3.415,-0.149,False
+Prudent,2024-12-24,3.415,-0.368,False
+Prudent,2025-01-27,3.007,0.558,False
+Prudent,2025-02-25,2.762,-1.902,False
+Prudent,2025-03-26,3.001,-0.337,False
+Prudent,2025-04-28,3.001,1.675,False
+Prudent,2025-05-28,3.001,0.108,False
+Prudent,2025-06-26,3.001,0.312,False
+Prudent,2025-07-25,3.001,0.28,False
+Prudent,2025-08-25,3.001,0.628,False
+Prudent,2025-09-23,3.001,1.387,False
+Prudent,2025-10-22,3.001,-0.438,False
+Prudent,2025-11-20,3.001,-0.08,False
+Prudent,2025-12-19,3.001,0.801,False
+Prudent,2026-01-22,3.001,0.949,False
+Prudent,2026-02-20,3.001,-2.072,False
+Prudent,2026-03-23,3.001,1.767,False
+Prudent,2026-04-23,3.007,1.641,False
+Prudent,2026-05-25,3.007,0.247,False
+Prudent,2026-06-23,3.007,-0.479,False
+Prudent,2026-07-22,3.007,-0.146,False
+Prudent,2026-08-20,3.007,-0.848,False
+Prudent,2026-09-18,3.007,0.422,False
+Équilibré,2014-08-27,2.382,0.459,False
+Équilibré,2014-09-25,2.382,-0.864,False
+Équilibré,2014-10-24,2.449,3.779,False
+Équilibré,2014-11-24,2.449,1.328,False
+Équilibré,2014-12-23,2.449,4.478,False
+Équilibré,2015-01-26,2.449,1.861,False
+Équilibré,2015-02-24,2.449,1.809,False
+Équilibré,2015-03-25,2.429,1.966,False
+Équilibré,2015-04-27,2.395,-1.405,False
+Équilibré,2015-05-27,2.429,-2.302,False
+Équilibré,2015-06-25,2.489,0.669,False
+Équilibré,2015-07-24,2.513,-6.883,True
+Équilibré,2015-08-24,2.614,1.99,False
+Équilibré,2015-09-22,3.281,2.184,False
+Équilibré,2015-10-21,3.281,3.949,False
+Équilibré,2015-11-19,3.281,-2.256,False
+Équilibré,2015-12-18,3.281,-5.114,True
+Équilibré,2016-01-20,3.44,1.923,False
+Équilibré,2016-02-18,3.442,2.768,False
+Équilibré,2016-03-18,3.442,1.621,False
+Équilibré,2016-04-20,3.442,-1.742,False
+Équilibré,2016-05-19,3.442,0.651,False
+Équilibré,2016-06-17,3.31,3.732,False
+Équilibré,2016-07-18,3.15,0.267,False
+Équilibré,2016-08-16,3.138,-1.326,False
+Équilibré,2016-09-14,3.111,0.785,False
+Équilibré,2016-10-13,3.104,0.032,False
+Équilibré,2016-11-11,3.094,3.092,False
+Équilibré,2016-12-12,3.078,1.289,False
+Équilibré,2017-01-11,3.056,-0.24,False
+Équilibré,2017-02-09,3.032,0.619,False
+Équilibré,2017-03-10,3.021,1.165,False
+Équilibré,2017-04-10,3.002,-0.24,False
+Équilibré,2017-05-12,2.98,0.046,False
+Équilibré,2017-06-12,2.956,-1.78,False
+Équilibré,2017-07-11,2.904,0.5,False
+Équilibré,2017-08-09,2.883,-0.701,False
+Équilibré,2017-09-07,2.883,2.156,False
+Équilibré,2017-10-06,2.883,1.983,False
+Équilibré,2017-11-06,2.883,-0.049,False
+Équilibré,2017-12-05,2.883,1.0,False
+Équilibré,2018-01-08,2.883,-3.778,True
+Équilibré,2018-02-06,2.947,1.135,False
+Équilibré,2018-03-07,3.069,0.098,False
+Équilibré,2018-04-09,3.069,2.494,False
+Équilibré,2018-05-09,2.851,0.456,False
+Équilibré,2018-06-07,2.816,0.387,False
+Équilibré,2018-07-06,2.79,1.673,False
+Équilibré,2018-08-06,2.788,0.146,False
+Équilibré,2018-09-04,2.788,0.605,False
+Équilibré,2018-10-03,2.788,-2.847,True
+Équilibré,2018-11-01,2.945,0.473,False
+Équilibré,2018-11-30,2.945,-4.142,True
+Équilibré,2019-01-03,3.022,4.613,False
+Équilibré,2019-02-01,3.042,2.214,False
+Équilibré,2019-03-04,3.042,2.352,False
+Équilibré,2019-04-02,3.042,0.849,False
+Équilibré,2019-05-06,3.042,-1.506,False
+Équilibré,2019-06-04,3.042,4.487,False
+Équilibré,2019-07-03,3.042,0.988,False
+Équilibré,2019-08-01,3.042,-0.155,False
+Équilibré,2019-08-30,3.022,1.45,False
+Équilibré,2019-09-30,3.022,-0.307,False
+Équilibré,2019-10-29,3.022,1.905,False
+Équilibré,2019-11-27,3.022,-0.203,False
+Équilibré,2019-12-30,3.022,2.314,False
+Équilibré,2020-01-29,3.022,-3.223,True
+Équilibré,2020-02-27,3.026,-9.46,True
+Équilibré,2020-03-27,3.328,7.147,False
+Équilibré,2020-04-29,3.489,0.543,False
+Équilibré,2020-05-29,3.489,0.875,False
+Équilibré,2020-06-29,3.443,1.466,False
+Équilibré,2020-07-28,3.026,2.175,False
+Équilibré,2020-08-26,3.026,-1.672,False
+Équilibré,2020-09-24,3.026,2.123,False
+Équilibré,2020-10-23,3.026,2.834,False
+Équilibré,2020-11-23,2.993,0.697,False
+Équilibré,2020-12-22,2.981,1.725,False
+Équilibré,2021-01-22,2.976,0.45,False
+Équilibré,2021-02-22,2.949,1.344,False
+Équilibré,2021-03-23,2.945,1.5,False
+Équilibré,2021-04-23,2.931,-0.565,False
+Équilibré,2021-05-24,2.885,2.097,False
+Équilibré,2021-06-22,2.877,1.764,False
+Équilibré,2021-07-21,2.858,1.307,False
+Équilibré,2021-08-19,2.856,-0.154,False
+Équilibré,2021-09-17,2.847,0.537,False
+Équilibré,2021-10-18,2.84,3.439,False
+Équilibré,2021-11-16,2.813,-0.934,False
+Équilibré,2021-12-15,2.79,-0.303,False
+Équilibré,2022-01-13,2.774,-3.393,True
+Équilibré,2022-02-11,2.938,-2.215,False
+Équilibré,2022-03-14,2.983,2.176,False
+Équilibré,2022-04-12,2.98,-3.452,True
+Équilibré,2022-05-13,3.098,-5.336,True
+Équilibré,2022-06-13,3.316,4.254,False
+Équilibré,2022-07-12,3.508,3.741,False
+Équilibré,2022-08-10,3.508,-3.341,False
+Équilibré,2022-09-08,3.64,-4.498,True
+Équilibré,2022-10-07,3.904,0.854,False
+Équilibré,2022-11-07,4.101,2.175,False
+Équilibré,2022-12-06,4.101,-2.926,False
+Équilibré,2023-01-05,4.226,3.761,False
+Équilibré,2023-02-03,4.226,-1.811,False
+Équilibré,2023-03-06,4.226,0.513,False
+Équilibré,2023-04-04,4.226,0.117,False
+Équilibré,2023-05-08,4.226,2.693,False
+Équilibré,2023-06-06,4.226,0.553,False
+Équilibré,2023-07-05,4.226,0.093,False
+Équilibré,2023-08-03,4.226,0.949,False
+Équilibré,2023-09-01,4.226,-2.083,False
+Équilibré,2023-10-02,4.226,-1.278,False
+Équilibré,2023-10-31,4.226,3.985,False
+Équilibré,2023-11-29,4.226,3.549,False
+Équilibré,2024-01-02,4.226,1.67,False
+Équilibré,2024-01-31,4.226,1.462,False
+Équilibré,2024-02-29,4.226,1.528,False
+Équilibré,2024-04-02,4.226,-1.093,False
+Équilibré,2024-05-02,4.226,0.824,False
+Équilibré,2024-05-31,4.226,2.171,False
+Équilibré,2024-07-01,4.226,0.636,False
+Équilibré,2024-07-30,4.226,0.524,False
+Équilibré,2024-08-28,4.226,1.438,False
+Équilibré,2024-09-26,4.226,1.703,False
+Équilibré,2024-10-25,4.226,2.862,False
+Équilibré,2024-11-25,4.226,-0.053,False
+Équilibré,2024-12-24,4.226,-0.168,False
+Équilibré,2025-01-27,3.775,0.345,False
+Équilibré,2025-02-25,3.5,-2.899,False
+Équilibré,2025-03-26,3.879,-3.094,False
+Équilibré,2025-04-28,4.073,3.955,False
+Équilibré,2025-05-28,4.073,-0.027,False
+Équilibré,2025-06-26,4.073,1.454,False
+Équilibré,2025-07-25,4.073,0.926,False
+Équilibré,2025-08-25,4.073,1.198,False
+Équilibré,2025-09-23,4.073,1.629,False
+Équilibré,2025-10-22,4.073,-0.317,False
+Équilibré,2025-11-20,4.073,0.511,False
+Équilibré,2025-12-19,4.073,1.207,False
+Équilibré,2026-01-22,4.073,0.842,False
+Équilibré,2026-02-20,4.073,-2.835,False
+Équilibré,2026-03-23,4.073,3.805,False
+Équilibré,2026-04-23,4.101,3.142,False
+Équilibré,2026-05-25,4.101,0.294,False
+Équilibré,2026-06-23,4.101,0.276,False
+Équilibré,2026-07-22,4.101,-0.061,False
+Équilibré,2026-08-20,4.101,-0.317,False
+Équilibré,2026-09-18,4.101,1.32,False
+Dynamique,2014-08-27,3.663,0.842,False
+Dynamique,2014-09-25,3.663,-1.335,False
+Dynamique,2014-10-24,3.971,5.555,False
+Dynamique,2014-11-24,3.971,1.477,False
+Dynamique,2014-12-23,3.971,6.086,False
+Dynamique,2015-01-26,3.971,2.894,False
+Dynamique,2015-02-24,3.971,2.221,False
+Dynamique,2015-03-25,3.775,3.108,False
+Dynamique,2015-04-27,3.651,-0.991,False
+Dynamique,2015-05-27,3.656,-2.724,False
+Dynamique,2015-06-25,3.628,0.389,False
+Dynamique,2015-07-24,3.626,-11.148,True
+Dynamique,2015-08-24,3.817,3.294,False
+Dynamique,2015-09-22,4.778,3.229,False
+Dynamique,2015-10-21,4.778,5.956,False
+Dynamique,2015-11-19,4.778,-3.546,False
+Dynamique,2015-12-18,4.778,-8.26,True
+Dynamique,2016-01-20,5.158,2.604,False
+Dynamique,2016-02-18,5.365,4.126,False
+Dynamique,2016-03-18,5.365,2.531,False
+Dynamique,2016-04-20,5.365,-2.678,False
+Dynamique,2016-05-19,5.365,0.553,False
+Dynamique,2016-06-17,5.173,5.344,False
+Dynamique,2016-07-18,4.949,0.198,False
+Dynamique,2016-08-16,4.9,-1.794,False
+Dynamique,2016-09-14,4.837,1.362,False
+Dynamique,2016-10-13,4.816,1.281,False
+Dynamique,2016-11-11,4.793,5.226,False
+Dynamique,2016-12-12,4.724,1.655,False
+Dynamique,2017-01-11,4.62,0.119,False
+Dynamique,2017-02-09,4.589,1.457,False
+Dynamique,2017-03-10,4.558,1.093,False
+Dynamique,2017-04-10,4.552,-0.285,False
+Dynamique,2017-05-12,4.552,-0.468,False
+Dynamique,2017-06-12,4.552,-2.033,False
+Dynamique,2017-07-11,4.552,0.091,False
+Dynamique,2017-08-09,4.552,-1.36,False
+Dynamique,2017-09-07,4.552,3.932,False
+Dynamique,2017-10-06,4.552,2.592,False
+Dynamique,2017-11-06,4.552,-0.302,False
+Dynamique,2017-12-05,4.552,2.08,False
+Dynamique,2018-01-08,4.552,-5.794,True
+Dynamique,2018-02-06,4.567,1.731,False
+Dynamique,2018-03-07,4.845,-0.4,False
+Dynamique,2018-04-09,4.845,4.19,False
+Dynamique,2018-05-09,4.455,1.545,False
+Dynamique,2018-06-07,4.434,-0.081,False
+Dynamique,2018-07-06,4.403,2.905,False
+Dynamique,2018-08-06,4.403,0.336,False
+Dynamique,2018-09-04,4.403,1.289,False
+Dynamique,2018-10-03,4.403,-4.65,True
+Dynamique,2018-11-01,4.562,0.508,False
+Dynamique,2018-11-30,4.562,-7.031,True
+Dynamique,2019-01-03,4.928,7.11,False
+Dynamique,2019-02-01,4.962,3.54,False
+Dynamique,2019-03-04,4.962,3.125,False
+Dynamique,2019-04-02,4.962,1.249,False
+Dynamique,2019-05-06,4.962,-3.009,False
+Dynamique,2019-06-04,4.962,5.78,False
+Dynamique,2019-07-03,4.962,1.403,False
+Dynamique,2019-08-01,4.962,-1.324,False
+Dynamique,2019-08-30,4.845,2.533,False
+Dynamique,2019-09-30,4.845,0.21,False
+Dynamique,2019-10-29,4.845,3.204,False
+Dynamique,2019-11-27,4.845,0.098,False
+Dynamique,2019-12-30,4.845,2.91,False
+Dynamique,2020-01-29,4.845,-5.46,True
+Dynamique,2020-02-27,4.928,-14.381,True
+Dynamique,2020-03-27,5.481,12.255,False
+Dynamique,2020-04-29,5.687,0.508,False
+Dynamique,2020-05-29,5.687,0.983,False
+Dynamique,2020-06-29,5.583,1.893,False
+Dynamique,2020-07-28,5.174,3.666,False
+Dynamique,2020-08-26,5.174,-3.064,False
+Dynamique,2020-09-24,5.174,3.142,False
+Dynamique,2020-10-23,5.174,4.205,False
+Dynamique,2020-11-23,4.711,1.016,False
+Dynamique,2020-12-22,4.563,3.188,False
+Dynamique,2021-01-22,4.553,1.216,False
+Dynamique,2021-02-22,4.549,2.205,False
+Dynamique,2021-03-23,4.523,2.753,False
+Dynamique,2021-04-23,4.521,-0.329,False
+Dynamique,2021-05-24,4.512,3.029,False
+Dynamique,2021-06-22,4.476,2.078,False
+Dynamique,2021-07-21,4.474,1.737,False
+Dynamique,2021-08-19,4.473,0.391,False
+Dynamique,2021-09-17,4.469,1.213,False
+Dynamique,2021-10-18,4.453,5.274,False
+Dynamique,2021-11-16,4.444,-1.83,False
+Dynamique,2021-12-15,4.426,0.409,False
+Dynamique,2022-01-13,4.397,-3.785,False
+Dynamique,2022-02-11,4.473,-3.274,False
+Dynamique,2022-03-14,4.472,4.846,False
+Dynamique,2022-04-12,4.463,-4.79,True
+Dynamique,2022-05-13,4.567,-5.718,True
+Dynamique,2022-06-13,4.958,4.73,False
+Dynamique,2022-07-12,5.144,5.105,False
+Dynamique,2022-08-10,5.144,-2.825,False
+Dynamique,2022-09-08,5.144,-5.577,True
+Dynamique,2022-10-07,5.577,1.421,False
+Dynamique,2022-11-07,5.63,1.448,False
+Dynamique,2022-12-06,5.63,-2.996,False
+Dynamique,2023-01-05,5.606,5.382,False
+Dynamique,2023-02-03,5.606,-1.293,False
+Dynamique,2023-03-06,5.606,-0.644,False
+Dynamique,2023-04-04,5.606,0.421,False
+Dynamique,2023-05-08,5.606,4.191,False
+Dynamique,2023-06-06,5.606,0.996,False
+Dynamique,2023-07-05,5.606,0.225,False
+Dynamique,2023-08-03,5.606,1.311,False
+Dynamique,2023-09-01,5.578,-2.229,False
+Dynamique,2023-10-02,5.578,-2.458,False
+Dynamique,2023-10-31,5.562,4.872,False
+Dynamique,2023-11-29,5.462,4.28,False
+Dynamique,2024-01-02,5.462,2.696,False
+Dynamique,2024-01-31,5.462,2.762,False
+Dynamique,2024-02-29,5.462,2.31,False
+Dynamique,2024-04-02,5.462,-1.639,False
+Dynamique,2024-05-02,5.462,1.481,False
+Dynamique,2024-05-31,5.462,3.475,False
+Dynamique,2024-07-01,5.462,-0.069,False
+Dynamique,2024-07-30,5.462,0.448,False
+Dynamique,2024-08-28,5.462,1.858,False
+Dynamique,2024-09-26,5.462,2.785,False
+Dynamique,2024-10-25,5.462,4.151,False
+Dynamique,2024-11-25,5.462,0.049,False
+Dynamique,2024-12-24,5.462,0.031,False
+Dynamique,2025-01-27,4.769,0.111,False
+Dynamique,2025-02-25,4.71,-3.897,False
+Dynamique,2025-03-26,4.968,-5.837,True
+Dynamique,2025-04-28,5.562,6.249,False
+Dynamique,2025-05-28,5.562,-0.154,False
+Dynamique,2025-06-26,5.562,2.599,False
+Dynamique,2025-07-25,5.562,1.564,False
+Dynamique,2025-08-25,5.562,1.767,False
+Dynamique,2025-09-23,5.562,1.872,False
+Dynamique,2025-10-22,5.562,-0.209,False
+Dynamique,2025-11-20,5.562,1.11,False
+Dynamique,2025-12-19,5.562,1.613,False
+Dynamique,2026-01-22,5.562,0.736,False
+Dynamique,2026-02-20,5.562,-3.595,False
+Dynamique,2026-03-23,5.562,5.824,False
+Dynamique,2026-04-23,5.562,4.64,False
+Dynamique,2026-05-25,5.562,0.344,False
+Dynamique,2026-06-23,5.562,1.033,False
+Dynamique,2026-07-22,5.562,0.025,False
+Dynamique,2026-08-20,5.562,0.212,False
+Dynamique,2026-09-18,5.562,2.218,False
+100 % actions,2014-08-27,4.575,1.114,False
+100 % actions,2014-09-25,4.575,-1.644,False
+100 % actions,2014-10-24,4.866,6.671,False
+100 % actions,2014-11-24,4.866,1.478,False
+100 % actions,2014-12-23,4.866,6.993,False
+100 % actions,2015-01-26,4.866,3.568,False
+100 % actions,2015-02-24,4.866,2.393,False
+100 % actions,2015-03-25,4.584,3.865,False
+100 % actions,2015-04-27,4.575,-0.532,False
+100 % actions,2015-05-27,4.438,-2.859,False
+100 % actions,2015-06-25,4.404,0.102,False
+100 % actions,2015-07-24,4.364,-14.008,True
+100 % actions,2015-08-24,4.432,4.251,False
+100 % actions,2015-09-22,5.754,3.878,False
+100 % actions,2015-10-21,5.817,7.233,False
+100 % actions,2015-11-19,5.817,-4.403,False
+100 % actions,2015-12-18,5.817,-10.39,True
+100 % actions,2016-01-20,5.959,3.018,False
+100 % actions,2016-02-18,6.627,4.989,False
+100 % actions,2016-03-18,6.627,3.122,False
+100 % actions,2016-04-20,6.627,-3.282,False
+100 % actions,2016-05-19,6.627,0.402,False
+100 % actions,2016-06-17,6.29,6.318,False
+100 % actions,2016-07-18,5.914,0.117,False
+100 % actions,2016-08-16,5.908,-2.061,False
+100 % actions,2016-09-14,5.896,1.76,False
+100 % actions,2016-10-13,5.849,2.302,False
+100 % actions,2016-11-11,5.828,6.686,False
+100 % actions,2016-12-12,5.811,1.835,False
+100 % actions,2017-01-11,5.781,0.433,False
+100 % actions,2017-02-09,5.744,2.085,False
+100 % actions,2017-03-10,5.733,0.924,False
+100 % actions,2017-04-10,5.725,-0.305,False
+100 % actions,2017-05-12,5.711,-0.896,False
+100 % actions,2017-06-12,5.653,-2.083,False
+100 % actions,2017-07-11,5.631,-0.292,False
+100 % actions,2017-08-09,5.631,-1.84,False
+100 % actions,2017-09-07,5.631,5.195,False
+100 % actions,2017-10-06,5.631,2.906,False
+100 % actions,2017-11-06,5.631,-0.507,False
+100 % actions,2017-12-05,5.631,2.872,False
+100 % actions,2018-01-08,5.631,-7.103,True
+100 % actions,2018-02-06,5.721,2.123,False
+100 % actions,2018-03-07,5.909,-0.829,False
+100 % actions,2018-04-09,5.909,5.35,False
+100 % actions,2018-05-09,5.511,2.392,False
+100 % actions,2018-06-07,5.492,-0.499,False
+100 % actions,2018-07-06,5.492,3.757,False
+100 % actions,2018-08-06,5.492,0.473,False
+100 % actions,2018-09-04,5.492,1.792,False
+100 % actions,2018-10-03,5.492,-5.864,True
+100 % actions,2018-11-01,5.721,0.492,False
+100 % actions,2018-11-30,5.721,-9.016,True
+100 % actions,2019-01-03,5.991,8.741,False
+100 % actions,2019-02-01,6.261,4.417,False
+100 % actions,2019-03-04,6.261,3.541,False
+100 % actions,2019-04-02,6.261,1.491,False
+100 % actions,2019-05-06,6.261,-4.104,False
+100 % actions,2019-06-04,6.261,6.424,False
+100 % actions,2019-07-03,6.261,1.651,False
+100 % actions,2019-08-01,6.261,-2.266,False
+100 % actions,2019-08-30,5.955,3.284,False
+100 % actions,2019-09-30,5.955,0.655,False
+100 % actions,2019-10-29,5.955,4.088,False
+100 % actions,2019-11-27,5.955,0.357,False
+100 % actions,2019-12-30,5.955,3.184,False
+100 % actions,2020-01-29,5.955,-6.991,True
+100 % actions,2020-02-27,5.991,-17.527,True
+100 % actions,2020-03-27,7.103,15.869,False
+100 % actions,2020-04-29,7.21,0.427,False
+100 % actions,2020-05-29,7.21,1.004,False
+100 % actions,2020-06-29,7.182,2.104,False
+100 % actions,2020-07-28,6.58,4.673,False
+100 % actions,2020-08-26,6.58,-4.053,False
+100 % actions,2020-09-24,6.58,3.786,False
+100 % actions,2020-10-23,6.58,5.04,False
+100 % actions,2020-11-23,5.991,1.206,False
+100 % actions,2020-12-22,5.731,4.226,False
+100 % actions,2021-01-22,5.722,1.792,False
+100 % actions,2021-02-22,5.706,2.788,False
+100 % actions,2021-03-23,5.63,3.635,False
+100 % actions,2021-04-23,5.577,-0.09,False
+100 % actions,2021-05-24,5.565,3.593,False
+100 % actions,2021-06-22,5.564,2.168,False
+100 % actions,2021-07-21,5.552,1.966,False
+100 % actions,2021-08-19,5.538,0.846,False
+100 % actions,2021-09-17,5.525,1.713,False
+100 % actions,2021-10-18,5.521,6.458,False
+100 % actions,2021-11-16,5.507,-2.477,False
+100 % actions,2021-12-15,5.483,1.01,False
+100 % actions,2022-01-13,5.468,-3.811,False
+100 % actions,2022-02-11,5.547,-3.935,False
+100 % actions,2022-03-14,5.533,6.845,False
+100 % actions,2022-04-12,5.524,-5.577,True
+100 % actions,2022-05-13,5.569,-5.547,False
+100 % actions,2022-06-13,5.866,4.709,False
+100 % actions,2022-07-12,6.064,5.882,False
+100 % actions,2022-08-10,6.064,-2.1,False
+100 % actions,2022-09-08,6.064,-6.045,False
+100 % actions,2022-10-07,6.397,1.81,False
+100 % actions,2022-11-07,6.706,0.663,False
+100 % actions,2022-12-06,6.706,-2.761,False
+100 % actions,2023-01-05,6.406,6.384,False
+100 % actions,2023-02-03,6.406,-0.691,False
+100 % actions,2023-03-06,6.406,-1.61,False
+100 % actions,2023-04-04,6.406,0.686,False
+100 % actions,2023-05-08,6.406,5.198,False
+100 % actions,2023-06-06,6.406,1.329,False
+100 % actions,2023-07-05,6.406,0.349,False
+100 % actions,2023-08-03,6.406,1.545,False
+100 % actions,2023-09-01,6.293,-2.13,False
+100 % actions,2023-10-02,6.293,-3.277,False
+100 % actions,2023-10-31,6.052,5.263,False
+100 % actions,2023-11-29,6.015,4.593,False
+100 % actions,2024-01-02,6.015,3.406,False
+100 % actions,2024-01-31,6.015,3.723,False
+100 % actions,2024-02-29,6.015,2.841,False
+100 % actions,2024-04-02,6.015,-1.952,False
+100 % actions,2024-05-02,6.015,1.974,False
+100 % actions,2024-05-31,6.015,4.373,False
+100 % actions,2024-07-01,6.015,-0.676,False
+100 % actions,2024-07-30,6.015,0.367,False
+100 % actions,2024-08-28,6.045,2.099,False
+100 % actions,2024-09-26,6.045,3.54,False
+100 % actions,2024-10-25,6.045,4.968,False
+100 % actions,2024-11-25,6.045,0.167,False
+100 % actions,2024-12-24,6.045,0.234,False
+100 % actions,2025-01-27,5.577,-0.1,False
+100 % actions,2025-02-25,5.573,-4.429,False
+100 % actions,2025-03-26,5.734,-7.768,True
+100 % actions,2025-04-28,6.089,7.785,False
+100 % actions,2025-05-28,6.133,-0.236,False
+100 % actions,2025-06-26,6.133,3.421,False
+100 % actions,2025-07-25,6.133,2.016,False
+100 % actions,2025-08-25,6.133,2.133,False
+100 % actions,2025-09-23,6.133,1.939,False
+100 % actions,2025-10-22,6.133,-0.082,False
+100 % actions,2025-11-20,6.133,1.57,False
+100 % actions,2025-12-19,6.133,1.852,False
+100 % actions,2026-01-22,6.133,0.588,False
+100 % actions,2026-02-20,6.133,-3.946,False
+100 % actions,2026-03-23,6.133,7.144,False
+100 % actions,2026-04-23,6.133,5.595,False
+100 % actions,2026-05-25,6.133,0.372,False
+100 % actions,2026-06-23,6.133,1.645,False
+100 % actions,2026-07-22,6.133,0.119,False
+100 % actions,2026-08-20,6.133,0.689,False
+100 % actions,2026-09-18,6.133,2.849,False
